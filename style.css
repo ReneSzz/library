@@ -26,33 +26,129 @@ background-color: var(--accent-color);
 }
 .container { 
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 94%;
     }
 .input {
-    border: solid 6px black;
+    /* border: solid 6px black; */
     background-color: white;
-    width: 45%;
-    height: 100%;
+    width: 100%;
+    height: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 1%;
 } 
 .input > h1 {
     width: 90%;
-    border: solid 1px grey;
-    border-top: none;
-    border-right: none;
-    border-left: none;
+    height: 5%;
     text-align: center;
+    padding-bottom: 2%;
+    
 }
 .books{
-    border: solid 6px black;
+    display: flex;
+   margin-top: 2%;
+    /* border: solid 6px black; */
     background-color: white;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+    
 }
+
+.book{
+    width: 18rem;
+    height: 18rem;
+    border: solid 3px black;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    /* margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%; */
+}
+
 .inputForm {
     display: flex;
     flex-direction: column;
+    position: relative;
+   
+    width: 100%;
+    height: 100%;
+    
 } 
+
+.button { 
+   
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    color: aliceblue;
+    box-shadow:25px;
+    background-color: #0096FF; 
+    border-style: none ;
+    border-radius: 50px;
+
+
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.button:active { 
+
+    transform: scale(0.99);
+}
+
+.bgModal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.7);
+    position: absolute;
+    top: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   display: none;
+   
+}
+
+.modalContent{ 
+    width: 400px;
+    height: 350px;
+    background: white;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.modalContent > h1 {
+    text-align: center;
+}
+
+.inputForm > input {
+    margin-bottom: 5%;
+}
+
+#close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 2rem;
+    transform: rotate(45deg);
+    font-weight: 700;
+}
+
+
+
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
