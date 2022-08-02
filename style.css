@@ -144,8 +144,16 @@ background-color: var(--accent-color);
     font-size: 2rem;
     transform: rotate(45deg);
     font-weight: 700;
+    -webkit-tap-highlight-color: transparent;
+user-select: none;
 }
 
+
+#submit {
+    margin-top: 8%;
+    margin-left: 80%;
+    width: 5rem;
+}
 
 
 [type="checkbox"]
