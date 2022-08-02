@@ -30,7 +30,7 @@ function populateLibrary (title, author, pageCount, finished){
        
     let bookCard =  document.createElement('div');
     let newBookTitle = document.createElement('h2');
-    newBookTitle.innerText = library[i].title; 
+    newBookTitle.innerText = library[i].title;
     let newBookAuthor = document.createElement('p');
     newBookAuthor.innerText = library[i].author;
     let newPageCount = document.createElement('p');
