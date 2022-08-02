@@ -26,8 +26,13 @@ let submitButton = document.getElementById("submit");
 
 
 function populateLibrary (title, author, pageCount, finished){
-    for (let i= 0; i < library.length; i++) {
-       
+    for (let i = 0; i < library.length; i++) {
+        if (i > 0 ){
+        
+            
+                books.removeChild(books.children[i-1]);
+           
+        }
     let bookCard =  document.createElement('div');
     let newBookTitle = document.createElement('h2');
     newBookTitle.innerText = library[i].title;
@@ -36,19 +41,22 @@ function populateLibrary (title, author, pageCount, finished){
     let newPageCount = document.createElement('p');
     newPageCount.innerText = library[i].pageNumbers;
     let newBookRead = document.createElement('p');
-    newBookRead.innerText = library[i].readOrNot;
+    
+    library[i].readOrNot == false ? newBookRead.innerText = "not cool" : newBookRead.innerText = "very cool!";
+
+    // newBookRead.innerText = library[i].readOrNot;
     bookCard.classList.add('book');
     
-    
+    console.log(library);
     
     
     books.appendChild(bookCard);
- 
     bookCard.appendChild(newBookTitle);
     bookCard.appendChild(newBookAuthor);
     bookCard.appendChild(newPageCount);
     bookCard.appendChild(newBookRead);
-    
+   
+   
 }
 }
 
@@ -58,14 +66,14 @@ function populateLibrary (title, author, pageCount, finished){
 
 
 submitButton.addEventListener('click', function (e){
-    i = 0;
+    
     title = document.getElementById("bookName").value;
     author = document.getElementById("authorName").value;
     pageNumbers = document.getElementById("pageNumbers").value;
     readOrNot = document.getElementById("readOrNot").checked;
-    library[i] = new Book (title, author, pageNumbers, readOrNot)
+    library.push(new Book (title, author, pageNumbers, readOrNot))
     populateLibrary(title, author, pageNumbers, readOrNot);
-    i++
+   
 
 
     
