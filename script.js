@@ -39,10 +39,10 @@ function populateLibrary (title, author, pageCount, finished){
     let newBookAuthor = document.createElement('p');
     newBookAuthor.innerText = library[i].author;
     let newPageCount = document.createElement('p');
-    newPageCount.innerText = library[i].pageNumbers;
+    newPageCount.innerText = `${library[i].pageNumbers} Pages`;
     let newBookRead = document.createElement('p');
     
-    library[i].readOrNot == false ? newBookRead.innerText = "not cool" : newBookRead.innerText = "very cool!";
+    library[i].readOrNot == false ? newBookRead.innerText = "Not finished reading." : newBookRead.innerText = "Finished!";
 
     // newBookRead.innerText = library[i].readOrNot;
     bookCard.classList.add('book');
