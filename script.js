@@ -1,7 +1,11 @@
 const modalBackground = document.getElementsByClassName("bgModal");
-const button = document.getElementsByClassName("button")
-const closeButton = document.getElementById("close");
+const button = document.getElementsByClassName("button");
+let closeButton = document.getElementsByClassName('close');
+let bookContainer = document.getElementById('bookContainer');
 const books = document.getElementById("books");
+let deleteBook = document.createElement('button');
+deleteBook.innerText = "Delete";
+let allBooks = document.getElementsByClassName('book');
 //  form variables. 
 let title = "";
 let author = ""; 
@@ -26,38 +30,81 @@ let submitButton = document.getElementById("submit");
 
 
 function populateLibrary (title, author, pageCount, finished){
-    for (let i = 0; i < library.length; i++) {
-        if (i > 0 ){
+    if (library.length > 0 ) {
+    for (let index = 0; index < library.length-1; index++) {
+        allBooks[0].parentNode.removeChild(allBooks[0]);
         
-            
-                books.removeChild(books.children[i-1]);
-           
-        }
+    }
+}
+    
+         
+    for (let i = 0; i < library.length; i++) {
+       
+       
+              
+                
+          
     let bookCard =  document.createElement('div');
+    let deleteBook = document.createElement('button');
     let newBookTitle = document.createElement('h2');
-    newBookTitle.innerText = library[i].title;
     let newBookAuthor = document.createElement('p');
-    newBookAuthor.innerText = library[i].author;
     let newPageCount = document.createElement('p');
+      
+        
+ 
+    bookCard.setAttribute(`data-book-number`, `${i}`);
+    deleteBook.innerText = "Delete";
+    newBookTitle.innerText = library[i].title;
+   newBookAuthor.innerText = library[i].author;
     newPageCount.innerText = `${library[i].pageNumbers} Pages`;
     let newBookRead = document.createElement('p');
     
-    library[i].readOrNot == false ? newBookRead.innerText = "Not finished reading." : newBookRead.innerText = "Finished!";
-
+    if (library[i].readOrNot == false) {
+   newBookRead.innerText = "Not finished reading.";
+   newBookRead.style.backgroundColor = "red"; }
+    else {
+     newBookRead.innerText = "Finished!";
+     newBookRead.style.backgroundColor = "lightgreen";
+    }
+    newBookRead.addEventListener('click', function (e){
+        if (newBookRead.innerText == "Finished!") {
+         newBookRead.innerText = "Not finished reading.";
+    newBookRead.style.backgroundColor = "red"; 
+        }
+        else if (newBookRead.innerText !== "Finished!"){
+         newBookRead.innerText = "Finished!";
+         newBookRead.style.backgroundColor = "lightgreen";
+        }
+ 
+     })
     // newBookRead.innerText = library[i].readOrNot;
     bookCard.classList.add('book');
     
     console.log(library);
-    
-    
+   
+   
+   
     books.appendChild(bookCard);
     bookCard.appendChild(newBookTitle);
     bookCard.appendChild(newBookAuthor);
     bookCard.appendChild(newPageCount);
     bookCard.appendChild(newBookRead);
+    bookCard.appendChild(deleteBook);
+    
    
    
-}
+    // deleteBook.addEventListener('click', function (e){
+    //     var attribute = this.parentElement.getAttribute("data-book-number");
+        
+    //     deleteBook.parentNode.parentNode.removeChild(deleteBook.parentNode);
+    //     library.splice(attribute, 1);
+    // });
+    }
+
+
+
+
+
 }
 
 
@@ -73,7 +120,9 @@ submitButton.addEventListener('click', function (e){
     readOrNot = document.getElementById("readOrNot").checked;
     library.push(new Book (title, author, pageNumbers, readOrNot))
     populateLibrary(title, author, pageNumbers, readOrNot);
+
    
+    
 
 
     
@@ -93,7 +142,13 @@ modalBackground[0].style.display = "flex";
 });
 
 
-closeButton.addEventListener('click', function (e) {
+closeButton[0].addEventListener('click', function (e) {
     modalBackground[0].style.display = "none";
 
 });
+
+
+
+
+   
+

@@ -50,6 +50,10 @@ background-color: var(--accent-color);
     padding-bottom: 2%;
     
 }
+#bookContainer{ 
+    height: 100%;
+    width: 86%;
+}
 #books{
     display: flex;
    margin-top: 2%;
@@ -63,22 +67,41 @@ background-color: var(--accent-color);
 }
 
 .book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 16rem;
-    height: 14rem;
+    height: 16rem;
     border: solid 3px black;
     background-color: white;
     border-radius: 8px;
-    /* margin-left: 2%;
-    margin-top: 2%;
-    margin-right: 2%; */
+    padding: 1%;
+  
 }
+
 .book > h2{
     text-align: center;
 }
 .book > p{
     text-align: center;
+    margin-bottom: 2%;
 }
 
+.book > :nth-child(4){
+    background-color: lightgreen;
+    width: 30%;
+    padding: 2%;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: -1%;
+   
+   
+}
+
+.book > :nth-child(4){
+cursor: pointer;
+}
 .inputForm {
     display: flex;
     flex-direction: column;
@@ -144,7 +167,7 @@ background-color: var(--accent-color);
     margin-bottom: 5%;
 }
 
-#close {
+.close {
     position: absolute;
     top: 0;
     right: 0;
@@ -153,7 +176,8 @@ background-color: var(--accent-color);
     transform: rotate(45deg);
     font-weight: 700;
     -webkit-tap-highlight-color: transparent;
-user-select: none;
+    user-select: none;
+    margin-right: 2%;
 }
 
 
