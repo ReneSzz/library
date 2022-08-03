@@ -30,13 +30,7 @@ let submitButton = document.getElementById("submit");
 
 
 function populateLibrary (title, author, pageCount, finished){
-    if (library.length > 0 ) {
-    for (let index = 0; index < library.length-1; index++) {
-        allBooks[0].parentNode.removeChild(allBooks[0]);
-        
-    }
-}
-    
+   
          
     for (let i = 0; i < library.length; i++) {
        
@@ -58,6 +52,17 @@ function populateLibrary (title, author, pageCount, finished){
    newBookAuthor.innerText = library[i].author;
     newPageCount.innerText = `${library[i].pageNumbers} Pages`;
     let newBookRead = document.createElement('p');
+    deleteBook.addEventListener('click', function (e){
+        if (books.childNodes.length==0){
+            library = [];
+        };
+        let attribute = deleteBook.parentElement.getAttribute("data-book-number");
+        
+        deleteBook.parentNode.parentNode.removeChild(deleteBook.parentNode);
+        library.splice(attribute, 1);
+        console.log(library.length);
+        console.log(library);
+    });
     
     if (library[i].readOrNot == false) {
    newBookRead.innerText = "Not finished reading.";
@@ -93,12 +98,7 @@ function populateLibrary (title, author, pageCount, finished){
     
    
    
-    // deleteBook.addEventListener('click', function (e){
-    //     var attribute = this.parentElement.getAttribute("data-book-number");
-        
-    //     deleteBook.parentNode.parentNode.removeChild(deleteBook.parentNode);
-    //     library.splice(attribute, 1);
-    // });
+   
     }
 
 
@@ -106,7 +106,6 @@ function populateLibrary (title, author, pageCount, finished){
 
 
 }
-
 
 
 
@@ -120,7 +119,13 @@ submitButton.addEventListener('click', function (e){
     readOrNot = document.getElementById("readOrNot").checked;
     library.push(new Book (title, author, pageNumbers, readOrNot))
     populateLibrary(title, author, pageNumbers, readOrNot);
-
+    if (library.length > 0 ) {
+        for (let index = 0; index < library.length-1; index++) {
+            allBooks[0].parentNode.removeChild(allBooks[0]);
+            console.log(library.length)
+        }
+    }
+        
    
     
 
