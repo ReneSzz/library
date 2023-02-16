@@ -6,12 +6,16 @@ const books = document.getElementById("books");
 let deleteBook = document.createElement('button');
 deleteBook.innerText = "Delete";
 let allBooks = document.getElementsByClassName('book');
+let form = document.getElementById('form');
 //  form variables. 
 let title = "";
 let author = ""; 
 let pageNumbers = ""; 
 let readOrNot = ""; 
 let library = [];
+
+
+
 
 
 function Book(title, author, pageNumbers, readOrNot) { 
@@ -109,10 +113,21 @@ function populateLibrary (title, author, pageCount, finished){
 
 
 
+let titleInput = document.getElementById('bookName');
+let authorInput = document.getElementById('authorName'); 
+let pageNumbersInput = document.getElementById("pageNumbers"); 
+let readOrNotInput = document.getElementById("readOrNot"); 
 
-
-submitButton.addEventListener('click', function (e){
+form.addEventListener('submit',  (e) =>{
+    let messages = []
+    if(titleInput.value === '' || titleInput.value == null){
+        e.preventDefault();
+    }
     
+
+
+
+else
     title = document.getElementById("bookName").value;
     author = document.getElementById("authorName").value;
     pageNumbers = document.getElementById("pageNumbers").value;
