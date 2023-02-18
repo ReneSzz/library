@@ -129,6 +129,7 @@ form.addEventListener('submit',  (e) =>{
     }
     else if(pageNumbersInput.value === '' || pageNumbersInput.value == null){
     pageNumbersInput = document.getElementById("pageNumbers"); 
+    e.preventDefault();
     }
 
 
