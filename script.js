@@ -124,7 +124,12 @@ form.addEventListener('submit',  (e) =>{
         e.preventDefault();
     }
     
-
+    else if(authorInput.value === '' || authorInput.value == null){
+        e.preventDefault();
+    }
+    else if(pageNumbersInput.value === '' || pageNumbersInput.value == null){
+    pageNumbersInput = document.getElementById("pageNumbers"); 
+    }
 
 
 else
